@@ -1,0 +1,43 @@
+[
+    {
+      "id": "1",
+      "date": "2024-03-15 10:30 AM",
+      "from": "HR Department",
+      "to": "Finance Department",
+      "receiver": "Maria Rodriguez",
+      "actionRequested": "Salary Package Review",
+      "remarks": "Please verify salary structure and benefits package",
+      "deliveryMethod": "email",
+      "isUrgent": true,
+      "status": "completed",
+      "timeReceived": "10:45 AM",
+      "documentType": "Employment Contract"
+    },
+    {
+      "id": "2",
+      "date": "2024-03-15 02:00 PM",
+      "from": "Finance Department",
+      "to": "Legal Department",
+      "receiver": "James Wilson",
+      "actionRequested": "Contract Review and Compliance Check",
+      "remarks": "Verify terms and conditions, ensure legal compliance",
+      "deliveryMethod": "personal",
+      "isUrgent": true,
+      "status": "current",
+      "documentType": "Employment Contract"
+    },
+    {
+      "id": "3",
+      "date": "2024-03-16",
+      "from": "Legal Department",
+      "to": "Executive Office",
+      "receiver": "Pending",
+      "actionRequested": "Final Approval",
+      "remarks": "Awaiting final review and signature",
+      "deliveryMethod": "personal",
+      "isUrgent": true,
+      "status": "pending",
+      "documentType": "Employment Contract"
+    }
+  ]
+  
