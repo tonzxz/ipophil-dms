@@ -15,4 +15,4 @@ const nextConfig = {
   },
 } as NextConfig;
 
-export default nextConfig;
+export default nextConfig; 
