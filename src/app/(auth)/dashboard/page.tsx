@@ -29,19 +29,24 @@ const statusMapping = {
 } as const
 
 type DashboardStatus = 'incoming' | 'recieved' | 'outgoing' | 'dispatch' | 'completed'
+type DocStatus = 'intransit' | 'recieved' | 'dispatch' | 'completed'
 
 // Helper function to determine document status
 const getDashboardStatus = (doc: JoinedDocument): DashboardStatus => {
     const docStatus = doc.status.toLowerCase() as keyof typeof statusMapping
-    const transitStatus = doc.transit_status?.toLowerCase() as keyof typeof statusMapping | undefined
-
-    // Transit status takes precedence if it exists
-    if (transitStatus && transitStatus in statusMapping) {
-        return statusMapping[transitStatus] as DashboardStatus
+    
+    if(docStatus == 'dispatch' && doc.is_received){
+        return 'recieved';
     }
 
+    if(docStatus == 'completed'){
+        return 'completed';
+    }
+
+    return 'dispatch'
+
     // Fall back to document status
-    return statusMapping[docStatus] as DashboardStatus || 'dispatch'
+    // return statusMapping[docStatus] as DashboardStatus || 'dispatch'
 }
 
 export default function Page() {
@@ -63,7 +68,6 @@ export default function Page() {
 
         const currentCounts = createEmptyCounts()
         const lastMonthCounts = createEmptyCounts()
-
         docs.forEach((doc: JoinedDocument) => {
             const docDate = new Date(doc.date_created)
             const docMonth = docDate.getMonth()
@@ -78,8 +82,21 @@ export default function Page() {
                         : null
 
             if (counts) {
-                const status = getDashboardStatus(doc)
-                counts[status]++
+                if(doc.status == 'intransit'){
+                    if(doc.from_agency == doc.to_agency && doc.to_agency){
+                        counts['incoming']++
+                        counts['outgoing']++
+                    }else{
+                        if(doc.from_agency == doc.receiving_office){
+                            counts['outgoing']++;
+                        }else{
+                            counts['incoming']++;
+                        }
+                    }
+                }else{
+                    const status = getDashboardStatus(doc)
+                    counts[status]++
+                }
             }
         })
 
