@@ -181,8 +181,8 @@ export function DataTableToolbar<TData>({
             </div>
             <div className='flex items-center space-x-2'>
                 <ExportAllDocument table={table} />
-                <AddDocumentButton title='Release' actionType={'Release'} />
-                <AddDocumentButton actionType='Create' />
+                <AddDocumentButton title='Release a Document' actionType={'Release'} />
+                <AddDocumentButton title='Enroll a Document' actionType='Create' />
                 <DataTableViewOptions table={table} />
             </div>
         </div>

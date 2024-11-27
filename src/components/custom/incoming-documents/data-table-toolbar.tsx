@@ -70,7 +70,7 @@ export function DataTableToolbar<TData>({ table, onAdd }: DataTableToolbarProps<
                 )}
             </div>
             <div className='flex items-center space-x-2'>
-                <AddDocumentButton onAdd={onAdd} title='Receive' actionType={'Receive'} />
+                <AddDocumentButton onAdd={onAdd} title='Receive a Document' actionType={'Receive'} />
                 <DataTableViewOptions table={table} />
             </div>
         </div>

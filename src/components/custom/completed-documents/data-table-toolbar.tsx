@@ -82,8 +82,8 @@ export function DataTableToolbar<TData>({
             </div>
          
             <div className='flex items-center space-x-2'>
-                <AddDocumentButton onAdd={onAdd} title='Receive' actionType={'Receive'} />
-                <AddDocumentButton onAdd={onAdd} title='Release' actionType={'Release'} />
+                <AddDocumentButton onAdd={onAdd} title='Receive a Document' actionType={'Receive'} />
+                <AddDocumentButton onAdd={onAdd} title='Transmit a Document' actionType={'Release'} />
                 <DataTableViewOptions table={table} />
             </div>
         </div>
